@@ -1,34 +1,20 @@
 ﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""
-This experiment was created using PsychoPy3 Experiment Builder (v2020.2.10),
-    on Fri Apr  9 17:35:21 2021
-If you publish work using this script the most relevant publication is:
-
-    Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
-        PsychoPy2: Experiments in behavior made easy Behav Res 51: 195. 
-        https://doi.org/10.3758/s13428-018-01193-y
-
-"""
 
 from __future__ import absolute_import, division
 
 from psychopy import locale_setup
 from psychopy import prefs
 from psychopy import sound, gui, visual, core, data, event, logging, clock
-from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
-                                STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
+from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED, STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
 
 import numpy as np  # whole numpy lib is available, prepend 'np.'
-from numpy import (sin, cos, tan, log, log10, pi, average,
-                   sqrt, std, deg2rad, rad2deg, linspace, asarray)
+from numpy import (sin, cos, tan, log, log10, pi, average, sqrt, std, deg2rad, rad2deg, linspace, asarray)
 from numpy.random import random, randint, normal, shuffle
 import os  # handy system and path functions
 import sys  # to get file system encoding
 
 from psychopy.hardware import keyboard
-
-
 
 # Ensure that relative paths start from the same directory as this script
 _thisDir = os.path.dirname(os.path.abspath(__file__))
@@ -49,11 +35,8 @@ expInfo['psychopyVersion'] = psychopyVersion
 filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])
 
 # An ExperimentHandler isn't essential but helps with data saving
-thisExp = data.ExperimentHandler(name=expName, version='',
-    extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/jeevasm/Desktop/posnerfirst/PosnerCT.py',
-    savePickle=True, saveWideText=True,
-    dataFileName=filename)
+thisExp = data.ExperimentHandler(name=expName, version='', extraInfo=expInfo, runtimeInfo=None, originPath='/Users/jeevasm/Desktop/posnerfirst/PosnerCT.py',
+    savePickle=True, saveWideText=True, dataFileName=filename)
 # save a log file for detail verbose info
 logFile = logging.LogFile(filename+'.log', level=logging.DEBUG)
 logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
@@ -64,12 +47,8 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 # Start Code - component code to be run after the window creation
 
 # Setup the Window
-win = visual.Window(
-    size=[1440, 900], fullscr=True, screen=0, 
-    winType='pyglet', allowGUI=False, allowStencil=False,
-    monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
-    blendMode='avg', useFBO=True, 
-    units='height')
+win = visual.Window(size=[1440, 900], fullscr=True, screen=0, winType='pyglet', allowGUI=False, allowStencil=False, monitor='testMonitor', color=[0,0,0], 
+    colorSpace='rgb', blendMode='avg', useFBO=True, units='height')
 # store frame rate of monitor if we can measure it
 expInfo['frameRate'] = win.getActualFrameRate()
 if expInfo['frameRate'] != None:
@@ -82,56 +61,26 @@ defaultKeyboard = keyboard.Keyboard()
 
 # Initialize components for Routine "Introduction"
 IntroductionClock = core.Clock()
-intro = visual.TextStim(win=win, name='intro',
-    text='Hi! Welcome to the experiment. ',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1, 
-    languageStyle='LTR',
-    depth=0.0);
-instruction = visual.TextStim(win=win, name='instruction',
-    text='1. Press the left arrow when you see a green coloured star on the left side. \n\n2. Press the right arrow when you see a green coloured star on the right side. \n\n3. Do not respond to any other shapes that pop up. \n\nAsk the experimenter if you still have any doubts. If not, then get ready and press the space bar to start the experiment. ',
-    font='Arial',
-    pos=(0, 0), height=0.05, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1, 
-    languageStyle='LTR',
-    depth=-1.0);
+intro = visual.TextStim(win=win, name='intro', text='Hi! Welcome to the experiment. ', font='Arial', pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1, languageStyle='LTR', depth=0.0);
+instruction = visual.TextStim(win=win, name='instruction', text='1. Press the left arrow when you see a green coloured star on the left side. \n\n2. Press the right arrow when you see a green coloured star on the right side. \n\n3. Do not respond to any other shapes that pop up. \n\nAsk the experimenter if you still have any doubts. If not, then get ready and press the space bar to start the experiment. ',
+    font='Arial', pos=(0, 0), height=0.05, wrapWidth=None, ori=0, color='white', colorSpace='rgb', opacity=1, languageStyle='LTR', depth=-1.0);
 instruction_resp = keyboard.Keyboard()
 
 # Initialize components for Routine "trial"
 trialClock = core.Clock()
-fixation = visual.ShapeStim(
-    win=win, name='fixation', vertices='cross',
-    size=(0.05, 0.05),
-    ori=0, pos=(0, 0),
-    lineWidth=1, lineColor='black', lineColorSpace='rgb',
-    fillColor='white', fillColorSpace='rgb',
-    opacity=1, depth=0.0, interpolate=True)
-cue = visual.Rect(
-    win=win, name='cue',
-    width=(0.1, 0.1)[0], height=(0.1, 0.1)[1],
-    ori=0, pos=[0,0],
-    lineWidth=1, lineColor='green', lineColorSpace='rgb',
-    fillColor='green', fillColorSpace='rgb',
-    opacity=1, depth=-1.0, interpolate=True)
-target = visual.ShapeStim(
-    win=win, name='target', vertices='star7',
-    size=(0.3, 0.3),
-    ori=0, pos=[0,0],
-    lineWidth=1, lineColor='green', lineColorSpace='rgb',
-    fillColor='green', fillColorSpace='rgb',
-    opacity=1, depth=-2.0, interpolate=True)
+fixation = visual.ShapeStim(win=win, name='fixation', vertices='cross', size=(0.05, 0.05), ori=0, pos=(0, 0), lineWidth=1, lineColor='black', lineColorSpace='rgb',
+    fillColor='white', fillColorSpace='rgb', opacity=1, depth=0.0, interpolate=True)
+cue = visual.Rect(win=win, name='cue', width=(0.1, 0.1)[0], height=(0.1, 0.1)[1], ori=0, pos=[0,0], lineWidth=1, lineColor='green', lineColorSpace='rgb',
+    fillColor='green', fillColorSpace='rgb', opacity=1, depth=-1.0, interpolate=True)
+target = visual.ShapeStim(win=win, name='target', vertices='star7', size=(0.3, 0.3), ori=0, pos=[0,0], lineWidth=1, lineColor='green', lineColorSpace='rgb',
+    fillColor='green', fillColorSpace='rgb', opacity=1, depth=-2.0, interpolate=True)
 resp = keyboard.Keyboard()
 
 # Initialize components for Routine "end"
 endClock = core.Clock()
-ending = visual.TextStim(win=win, name='ending',
-    text='Thank you for your participation! Press escape. ',
-    font='Arial',
-    pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1, 
-    languageStyle='LTR',
-    depth=0.0);
+ending = visual.TextStim(win=win, name='ending', text='Thank you for your participation! Press escape. ', font='Arial', pos=(0, 0), height=0.1, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1, languageStyle='LTR', depth=0.0);
 
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
@@ -253,10 +202,7 @@ thisExp.nextEntry()
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-trials = data.TrialHandler(nReps=5, method='random', 
-    extraInfo=expInfo, originPath=-1,
-    trialList=data.importConditions('conditions1.xlsx'),
-    seed=None, name='trials')
+trials = data.TrialHandler(nReps=5, method='random', extraInfo=expInfo, originPath=-1, trialList=data.importConditions('conditions1.xlsx'), seed=None, name='trials')
 thisExp.addLoop(trials)  # add the loop to the experiment
 thisTrial = trials.trialList[0]  # so we can initialise stimuli with some values
 # abbreviate parameter names if possible (e.g. rgb = thisTrial.rgb)
@@ -415,12 +361,8 @@ if trials.trialList in ([], [None], None):
 else:
     params = trials.trialList[0].keys()
 # save data for this loop
-trials.saveAsExcel(filename + '.xlsx', sheetName='trials',
-    stimOut=params,
-    dataOut=['n','all_mean','all_std', 'all_raw'])
-trials.saveAsText(filename + 'trials.csv', delim=',',
-    stimOut=params,
-    dataOut=['n','all_mean','all_std', 'all_raw'])
+trials.saveAsExcel(filename + '.xlsx', sheetName='trials', stimOut=params, dataOut=['n','all_mean','all_std', 'all_raw'])
+trials.saveAsText(filename + 'trials.csv', delim=',', stimOut=params, dataOut=['n','all_mean','all_std', 'all_raw'])
 
 # ------Prepare to start Routine "end"-------
 continueRoutine = True
