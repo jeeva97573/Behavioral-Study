@@ -11,3 +11,4 @@ thisExp = data.ExperimentHandler(name=expName, version='', extraInfo=expInfo, ru
     savePickle=True, saveWideText=True, dataFileName=filename)
 Here change the originPath according to where you have saved your PosnerCT.py in your computer. 
 5. Now you can run it. 
+6. In order to view the JASP file, please download JASP beforehand. 
